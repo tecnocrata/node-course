@@ -1,4 +1,5 @@
 //First expressjs app
+//based on: https://medium.freecodecamp.org/express-js-and-aws-lambda-a-serverless-love-story-7c77ba0eaa35
 'use strict'
 const express = require('express')
 const app = express()
