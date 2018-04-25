@@ -1,6 +1,8 @@
-import Person from '../../models/person';
+//import Person from '../../models/person';
+let Person = require('../../models/person');
 
-export function createPerson (req, res) {
+//export function createPerson (req, res) {
+function createPerson (req, res) {
     console.log('Person ready');
     var enrique = new Person();      // create a new instance of the Person model
     enrique.name = req.body.name;  // set the person name (comes from the request)
@@ -13,7 +15,9 @@ export function createPerson (req, res) {
     });
 }
 
-export function getPersons(req, res) {
+//export function getPersons(req, res) {
+function getPersons(req, res) {
+    console.log('Getting Persons...');
     Person.find(function(err, persons) {
         if (err)
             res.send(err);
@@ -21,3 +25,8 @@ export function getPersons(req, res) {
         res.json(persons);
     });
 }
+
+module.exports = {
+    createPerson,
+    getPersons
+};
