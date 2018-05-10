@@ -1,5 +1,7 @@
 ## Tasks Day 1
 
+### Send test's screenshots using format explained
+
 ### Listen... When Node was started took seriously: 
 
 https://changelog.com/podcast/116
