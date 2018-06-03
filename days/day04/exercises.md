@@ -4,6 +4,6 @@
 
 ###	Move all previous exercises to nodejs console programs
 
-## Project Day 4
+## Project Day 3
 
 ### Progress Presentation so far
