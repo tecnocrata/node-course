@@ -1,3 +1,4 @@
+//Sample of creating a custom module
 let flight = require('./flight');
 flight.setNumber(7772);
 flight.setOrigin('Cochabamba');
