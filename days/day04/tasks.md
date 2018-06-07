@@ -1,9 +1,15 @@
-## Tasks Day 3
+## Tasks Day 4
 
 ### Learn fundamental functional programming features of JavaScript in vanilla ES5., using:
 
 ```
 npx functional-javascript-workshop
+```
+
+### Parse text with regular expressions:
+
+```
+npx regex-adventure
 ```
 
 ### Take this additional ES6 course:
