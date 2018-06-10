@@ -10,7 +10,7 @@ let calculateMonthlyPayment = function(principal, years, rate) {
 };
 
 let result = calculateMonthlyPayment (10, 20, 0.5);
-let {monthlyPayment, monthlyRate} = result;
+let {monthlyPayment, monthlyRate} = result;  //Destructuring
 
 console.log(result);
 console.log(monthlyPayment);
