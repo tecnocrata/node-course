@@ -6,13 +6,13 @@ class Mortgage {
         this.rate = rate;
     }
     
-    monthlyPayment() {
+    get monthlyPayment() {
         let monthlyRate = this.rate / 100 / 12;
         return this.principal * monthlyRate / (1 - (Math.pow(1/(1 + monthlyRate),
                     this.years * 12)));
     }
     
-    amortization() {
+    get amortization() {
         let monthlyPayment = this.monthlyPayment;
         let monthlyRate = this.rate / 100 / 12;
         let balance = this.principal;
