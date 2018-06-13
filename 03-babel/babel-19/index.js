@@ -1,3 +1,4 @@
+//Advanced tagged templates
 function template(strings, ...keys) {
     return (function (...values) {
         var dict = values[values.length - 1] || {};
