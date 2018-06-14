@@ -1,4 +1,6 @@
-## Exercises Day 4
+## Exercises Day 5
+
+### Modify previous exercises in order to ask input from keyboard
 
 ### Create a folder on your exercise github project that contains a package.json with all latest version of libraries mentioned here: 
 
