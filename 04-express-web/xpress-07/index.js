@@ -1,16 +1,18 @@
 let http = require('http');
 /* 
 Please NOW try sing these urls:
-http://localhost:8080
-http://localhost:8080/basement
-http://localhost:8080/floor/1/bedroom 
-
-BUT what about: http://localhost:8080/basement?fisrtname=John&lastname=Doe
+ http://localhost:8080/basement?fisrtname=John&lastname=Doe
 */
 let url = require("url");
+let querystring = require('querystring');
+
 let server = http.createServer(function (req, res) {
     let page = url.parse(req.url).pathname;
     console.log(page);
+    let params = querystring.parse(url.parse(req.url).query);
+    if (params.firstname && params.lastname){
+        console.log(('Your name is ' + params['firstname'] + ' ' + params['lastname']));
+    }
     res.writeHead(200, {
         "Content-Type": "text/html"
     });
