@@ -1,6 +1,16 @@
 let http = require('http');
-//Don’t forget that Node.js is low level… :p
+/* 
+Please try previous samples using these urls:
+http://localhost:8080
+http://localhost:8080/mypage
+http://localhost:8080/folder/otherpage 
+
+All return same page, but now with url module.....
+*/
+let url = require("url");
 let server = http.createServer(function (req, res) {
+    let page = url.parse(req.url).pathname;
+    console.log(page);
     res.writeHead(200, {
         "Content-Type": "text/html"
     });
@@ -16,4 +26,4 @@ let server = http.createServer(function (req, res) {
         '</html>');
     res.end();
 });
-server.listen(8080);    
+server.listen(8080);
