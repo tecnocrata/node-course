@@ -20,13 +20,15 @@ function mycallback(data) {
 
 getText('https://github.com/tecnocrata/', mycallback); */
 
-const promiseAnathomy = new Promise((resolve, reject) => {
-    // do something asynchronous which eventually calls either:
-    //
-    //   resolve(someValue); // fulfilled
-    // or
-    //   reject("failure reason"); // rejected
-});
+const promiseAnathomy = function (...myparameters){
+    return new Promise((resolve, reject) => {
+        // do something asynchronous which eventually calls either:
+        //
+        //   resolve(someValue); // fulfilled
+        // or
+        //   reject("failure reason"); // rejected
+    });
+}
 
 function getContent(url) {
     return new Promise((resolve, reject) => {
