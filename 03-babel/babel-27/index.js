@@ -4,15 +4,13 @@ const tenSecondsLater = () => console.log('5 seconds passed!')
 setTimeout(tenSecondsLater, 5000)
 console.log('Start!')
 
-const promiseAnathomy = function (...myparameters){
-    return new Promise((resolve, reject) => {
-        // do something asynchronous which eventually calls either:
-        //
-        //   resolve(someValue); // fulfilled
-        // or
-        //   reject("failure reason"); // rejected
-    });
-}
+const promiseAnathomy = new Promise((resolve, reject) => {
+    // do something asynchronous which eventually calls either:
+    //
+    //   resolve(someValue); // fulfilled
+    // or
+    //   reject("failure reason"); // rejected
+});
 
 let myFirstPromise = function() {
     return new Promise((resolve, reject) => {
@@ -23,12 +21,18 @@ let myFirstPromise = function() {
             resolve("Success!"); // Yay! Everything went well!
         }, 10000);
     });
-}
+}; //<------- DON'T forget this semicolon
 
-myFirstPromise().then((successMessage) => {
+/* myFirstPromise().then((successMessage) => {
     // successMessage is whatever we passed in the resolve(...) function above.
     // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
     console.log("10 seconds again! " + successMessage);
-});
+}); */
 
+//Top level await is not supported. 
+//Explore this: https://github.com/tc39/ecmascript-asyncawait/issues/9
 
+(async () => {
+    let successMessage = await myFirstPromise();
+    console.log("10 seconds again! " + successMessage);
+})();
