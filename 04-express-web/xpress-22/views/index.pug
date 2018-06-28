@@ -3,3 +3,35 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+    table
+
+        thead
+          tr 
+            th number
+            th origin
+            th destination
+            th departs
+            th arrives
+            th Actions    
+        tbody
+    
+         each blob, i in flights
+            tr
+                td=blob.data.number
+                td=blob.data.origin
+                td=blob.data.destination
+                td=blob.data.departs
+                td=blob.data.arrives
+                td
+                    form(action='/' + blob.number +'/edit',method='post',enctype='application/x-www-form-urlencoded')
+                         input(type='hidden',value='DELETE',name='_method')
+                         button(type='submit'). 
+                          Delete
+                    a(href='/' + blob.number + '/edit') Edit
+                    br
+                    a(href='/' + blob.number) Show
+
+    p  
+      a(href='/new' ) Add a NEW record                
+    p Back to 
+  a(href='../' ) Index
