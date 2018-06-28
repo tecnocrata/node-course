@@ -13,7 +13,7 @@ for (let number in flights) {
  */
 
 router.get('/', function (req, res, next) {
-  res.render('index', flights);
+  res.render('index', { title: 'Flights', flights });
 });
 
 module.exports = router;
