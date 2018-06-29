@@ -1,4 +1,4 @@
-class Mortgage {
+export default class Mortgage {
     
     constructor(principal, years, rate) {
         this.principal = principal;
