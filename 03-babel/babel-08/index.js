@@ -4,8 +4,6 @@ class Rectangle {
     constructor() {
         this.width = 4;
     }
-
-    //static myStaticValue =0;
 }
 
 Rectangle.myStaticValue = 100;
