@@ -11,5 +11,5 @@ let calculateMonthlyPayment = function(principal, years, rate) {
     return monthlyPayment;
 };
 
-let result = calculateMonthlyPayment (10, 20, 0.5);
+let result = calculateMonthlyPayment (100000, 25, 0.5);
 console.log(result);
