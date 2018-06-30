@@ -12,15 +12,15 @@ https://github.com/sindresorhus/awesome-nodejs
 https://tldrlegal.com/license/mit-license
 ```
 
-### Review how to use and create npm modules. Using:
+~~### Review how to use and create npm modules. Using:~~
 
 ```
 npx how-to-npm
 ```
 
-if you find problems at adding user, please follow these instructions:
+~~if you find problems at adding user, please follow these instructions:~~
 
-* Edit .npmrc file and change port from 15443 to 15444 and 
+~~Edit .npmrc file and change port from 15443 to 15444 and~~
 
 ```
 sudo docker run --name sinopia -d -p 15444:4873 bankiru/sinopia
