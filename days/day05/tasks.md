@@ -18,6 +18,14 @@ https://tldrlegal.com/license/mit-license
 npx how-to-npm
 ```
 
+if you find problems at adding user, please follow these instructions:
+
+* Edit .npmrc file and change port from 15443 to 15444 and 
+
+```
+sudo docker run --name sinopia -d -p 15444:4873 bankiru/sinopia
+```
+
 ### Make a desktop application using Node and Chromium with Electron
 
 ```
