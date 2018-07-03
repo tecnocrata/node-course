@@ -3,11 +3,11 @@ let router = express.Router();
 
 let flights = require('../data');
 
-let flight = require('../flight');
+/* let flight = require('../flight');
 
 for (let number in flights) {
   flights[number] = flight(flights[number]);
-}
+} */
 /*
  * GET home page.
  */

@@ -17,11 +17,11 @@ block content
     
          each f, i in flights
             tr
-                td=f.data.number
-                td=f.data.origin
-                td=f.data.destination
-                td=f.data.departs
-                td=f.data.arrives
+                td=f.number
+                td=f.origin
+                td=f.destination
+                td=f.departs
+                td=f.arrives
                 td
                     form(action='/' + f.number +'/edit',method='post',enctype='application/x-www-form-urlencoded')
                          input(type='hidden',value='DELETE',name='_method')

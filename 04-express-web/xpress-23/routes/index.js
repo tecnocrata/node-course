@@ -3,20 +3,21 @@ let router = express.Router();
 
 let flights = require('../data');
 
-let flight = require('../flight');
+//let flight = require('../flight');
 
-for (let number in flights) {
+/* for (let number in flights) {
 	flights[number] = flight(flights[number]);
-}
+} */
 /*
  * GET home page.
  */
 
 router
 	.get('/', function (req, res, next) {
+		//console.log(flights);
 		res.render('index', { title: 'Flights', flights });
 	})
-	.post(function (req, res, next) {
+	.post('/', function (req, res, next) {
 		// Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
 		var number = req.body.number;
 		var origin = req.body.origin;
@@ -25,19 +26,15 @@ router
 		var arrives = req.body.arrives;
 		//call the create function for our database
 		let item = {
-			number:
-			{
-				data:
-				{
-					number,
-					origin,
-					destination,
-					departs,
-					arrives
-				}
-			}
+			number,
+			origin,
+			destination,
+			departs,
+			arrives
 		};
-		flights.push(item);
+		//flights.push(item);
+		flights[number] = item;
+		console.log(flights);
 		//res.location("blobs");
 		//res.redirect("/");
 		res.format({
@@ -55,9 +52,8 @@ router
 		});
 	});
 
-
-	router.get('/new', function(req, res) {
-    res.render('new', { title: 'Add New Flight' });
+router.get('/new', function (req, res) {
+	res.render('new', { title: 'Add New Flight' });
 });
 
 module.exports = router;
