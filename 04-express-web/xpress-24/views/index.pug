@@ -23,7 +23,7 @@ block content
                 td=f.departs
                 td=f.arrives
                 td
-                    form(action='/' + f.number +'/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    form(action='/' + f.number +'/delete',method='post',enctype='application/x-www-form-urlencoded')
                          input(type='hidden',value='DELETE',name='_method')
                          button(type='submit'). 
                           Delete
