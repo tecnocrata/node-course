@@ -35,7 +35,6 @@ router
 		//flights.push(item);
 		flights[number] = item;
 		console.log(flights);
-		//res.location("blobs");
 		//res.redirect("/");
 		res.format({
 			//HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
@@ -46,6 +45,23 @@ router
 				res.redirect("/");
 			},
 			//JSON response will show the newly created blob
+			json: function () {
+				res.json(flights);
+			}
+		});
+	})
+	.post('/:id/delete', function (req, res) {
+		//find flight by ID
+		console.log('DELETE removing ID: ' + req.params.id);
+		console.log('DELETE : ' + flights[req.params.id].number);
+		delete flights[req.params.id];
+		
+		res.format({
+			//HTML returns us back to the main page, or you can create a success page
+			html: function () {
+				res.redirect("/");
+			},
+			//JSON returns the item with the message that is has been deleted
 			json: function () {
 				res.json(flights);
 			}

@@ -35,7 +35,6 @@ router
 		//flights.push(item);
 		flights[number] = item;
 		console.log(flights);
-		//res.location("blobs");
 		//res.redirect("/");
 		res.format({
 			//HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
