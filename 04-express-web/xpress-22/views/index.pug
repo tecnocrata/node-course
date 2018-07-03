@@ -15,21 +15,21 @@ block content
             th Actions    
         tbody
     
-         each blob, i in flights
+         each f, i in flights
             tr
-                td=blob.data.number
-                td=blob.data.origin
-                td=blob.data.destination
-                td=blob.data.departs
-                td=blob.data.arrives
+                td=f.number
+                td=f.origin
+                td=f.destination
+                td=f.departs
+                td=f.arrives
                 td
-                    form(action='/' + blob.number +'/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    form(action='/' + f.number +'/edit',method='post',enctype='application/x-www-form-urlencoded')
                          input(type='hidden',value='DELETE',name='_method')
                          button(type='submit'). 
                           Delete
-                    a(href='/' + blob.number + '/edit') Edit
+                    a(href='/' + f.number + '/edit') Edit
                     br
-                    a(href='/' + blob.number) Show
+                    a(href='/' + f.number) Show
 
     p  
       a(href='/new' ) Add a NEW record                
