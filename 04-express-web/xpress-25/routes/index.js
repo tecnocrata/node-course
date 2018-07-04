@@ -52,10 +52,8 @@ router
 	})
 	.post('/:id/delete', function (req, res) {
 		//find flight by ID
-		console.log('DELETE removing ID: ' + req.params.id);
-		console.log('DELETE : ' + flights[req.params.id].number);
 		delete flights[req.params.id];
-		
+
 		res.format({
 			//HTML returns us back to the main page, or you can create a success page
 			html: function () {
@@ -66,11 +64,62 @@ router
 				res.json(flights);
 			}
 		});
+	})
+	.post('/:id/update', function (req, res) {
+		var number = req.body.number;
+		var origin = req.body.origin;
+		var destination = req.body.destination;
+		var departs = req.body.departs;
+		var arrives = req.body.arrives;
+		//call the create function for our database
+		let item = {
+			number,
+			origin,
+			destination,
+			departs,
+			arrives
+		};
+		//flights.push(item);
+		flights[req.params.id] = item;
+		console.log(flights);
+		//res.redirect("/");
+		res.format({
+			//HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
+			html: function () {
+				// If it worked, set the header so the address bar doesn't still say /adduser
+				res.location("");
+				// And forward to success page
+				res.redirect("/");
+			},
+			//JSON response will show the newly created blob
+			json: function () {
+				res.json(flights);
+			}
+		});
 	});
 
-router.get('/new', function (req, res) {
-	res.render('new', { title: 'Add New Flight' });
-});
+router
+	.get('/new', function (req, res) {
+		res.render('new', { title: 'Add New Flight' });
+	})
+	.get('/:id/modify', function (req, res) {
+		//find flight by ID
+		let f = flights[req.params.id];
+		console.log('Flight-->', f);
+		if (f) {
+			res.format({
+				//HTML response will render the 'edit.jade' template
+				html: function () {
+					res.render('edit', { flight: f });
+				},
+				//JSON response will return the JSON output
+				json: function () {
+					res.json(f);
+				}
+			});
+		}
+
+	});
 
 module.exports = router;
 
