@@ -52,8 +52,6 @@ router
 	})
 	.post('/:id/delete', function (req, res) {
 		//find flight by ID
-		console.log('DELETE removing ID: ' + req.params.id);
-		console.log('DELETE : ' + flights[req.params.id].number);
 		delete flights[req.params.id];
 		
 		res.format({
