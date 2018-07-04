@@ -102,7 +102,7 @@ router
 	.get('/new', function (req, res) {
 		res.render('new', { title: 'Add New Flight' });
 	})
-	.get('/:id/modify', function (req, res) {
+	.get('/:id/edit', function (req, res) {
 		//find flight by ID
 		let f = flights[req.params.id];
 		console.log('Flight-->', f);
