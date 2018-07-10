@@ -1,6 +1,7 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
+//Configure basic Babel
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
