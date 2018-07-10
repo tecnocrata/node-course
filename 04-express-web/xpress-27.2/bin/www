@@ -3,10 +3,14 @@
 /**
  * Module dependencies.
  */
+//require("babel-core");//.transform("code");
+require("babel-core/register");
+console.log('Enabling babel6');
 
 var app = require('../app');
 var debug = require('debug')('xpress-21:server');
 var http = require('http');
+
 
 /**
  * Get port from environment and store in Express.
