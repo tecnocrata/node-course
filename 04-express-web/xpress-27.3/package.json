@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "start-dev": "nodemon --exec npm start --ext pug,sass"
+    "start": "node ./src/bin/www",
+    "start-dev": "nodemon --exec npm start --ext pug,sass",
+    "build": "babel src --out-dir dist --source-maps inline --copy-files" 
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
