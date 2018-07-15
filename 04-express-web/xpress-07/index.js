@@ -28,9 +28,9 @@ let server = http.createServer(function (req, res) {
             ' <p>Here is a paragraph of <strong>HTML</strong>!</p>' +
             ' </body>' +
             '</html>');
-    } else if (page == '/basement') {
+    } else if (page === '/basement') {
         res.write('You\'re in the wine cellar. These bottles are mine!');
-    } else if (page == '/floor/1/bedroom') {
+    } else if (page === '/floor/1/bedroom') {
         res.write('Hey, this is a private area!');
     }
     res.end();
