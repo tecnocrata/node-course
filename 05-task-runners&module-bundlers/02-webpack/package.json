@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "start-dev": "nodemon --exec npm start --ext pug,sass",
-    "build": "babel src --out-dir dist --source-maps inline --copy-files" 
+    "build": "babel src --out-dir dist --source-maps inline --copy-files"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -19,6 +19,8 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
   }
 }
