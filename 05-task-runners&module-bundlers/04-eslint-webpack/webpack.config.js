@@ -17,7 +17,7 @@ module.exports = {
     target: 'node',
     node: {
         __dirname: true
-      },
+    },
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'backend.js'
@@ -30,20 +30,29 @@ module.exports = {
                 query: {
                     presets: ['env']
                 }
-            }
+            },
+            {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    //"babel-loader",
+                    "eslint-loader",
+                ],
+            },
         ]
     },
     plugins: [
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, 'src/public'),
             to: 'src/public'
-          },
-          {
+        },
+        {
             from: path.resolve(__dirname, 'src/views'),
             to: 'src/views'
-          }
+        }
         ])
-  
+
     ],
     externals: nodeModules,
     devtool: 'sourcemap'
