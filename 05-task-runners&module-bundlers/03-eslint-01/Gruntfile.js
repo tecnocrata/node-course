@@ -1,5 +1,5 @@
 "use strict";
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     babel: {
       compile: {
@@ -8,13 +8,13 @@ module.exports = function(grunt) {
           presets: ["env"],
         },
         files: [{
-			expand: true,
-			//cwd: '<%= yeoman.server %>',
-			src: [
-			  'src/**/*.js'
-			],
-			dest: 'dist'
-		  }],
+          expand: true,
+          //cwd: '<%= yeoman.server %>',
+          src: [
+            'src/**/*.js'
+          ],
+          dest: 'dist'
+        }],
       },
     },
     nodeunit: {
@@ -22,15 +22,22 @@ module.exports = function(grunt) {
     },
     clean: {
       test: ["dist/**"],
-	},
-	copy: {
-		main: {
-			expand: true,
-			//cwd: '<%= yeoman.client %>',
-			dest: 'dist/',
-			src: ['src/**']
-		  }
-	}
+    },
+    copy: {
+      main: {
+        expand: true,
+        //cwd: '<%= yeoman.client %>',
+        dest: 'dist/',
+        src: ['src/**']
+      }
+    },
+    eslint: {
+      options: {
+        configFile: '.eslintrc.json',
+        //fix: true //uncomment to use this option
+      },
+      target: ['src/**/*.js']
+    },
   });
 
   //grunt.loadTasks("tasks");
@@ -38,6 +45,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-nodeunit");
   grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-eslint");
   //grunt.registerTask("build", ["clean", "babel", "nodeunit", "clean"]);
   grunt.registerTask("build", ["clean", "copy", "babel"]);
 };
