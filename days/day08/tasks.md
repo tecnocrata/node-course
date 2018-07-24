@@ -20,8 +20,8 @@
 
 ### Please upload your math-exercise site to two of the following cloud-providers as dynamic site, with only server side processing:
 
-	Openshift
-	Nodejitsu
-	Modulus
-	Heroku
+	Openshift	https://manage.openshift.com/register/plan
+	Nodejitsu	https://www.nodejitsu.com/
+	Modulus		https://modulus.io/
+	Heroku		https://www.heroku.com/
 
