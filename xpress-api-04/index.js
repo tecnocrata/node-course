@@ -8,12 +8,6 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 
-var mongoose   = require('mongoose');
-//Pease create your account at https://mlab.com
-mongoose.connect('mongodb://instructor:abc123A@ds235239.mlab.com:35239/tkn-demo');
-
-var Person = require('./models/person');
-
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,13 +40,8 @@ router.route('/persons') //please lets use plural
         console.log('Person ready');
         var enrique = new Person();      // create a new instance of the Person model
         enrique.name = req.body.name;  // set the person name (comes from the request)
-        // save the bear and check for errors
-        enrique.save(function(err) {
-            if (err)
-                res.send(err);
-
-            res.json({ message: 'Person created!' });
-        });
+        
+        res.json({ message: 'Person created!' });
     });
 
 // REGISTER OUR ROUTES -------------------------------
@@ -63,3 +52,10 @@ app.use('/api', router);
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+
+class Person{
+    eat(){
+        console.log('eat...');
+    }
+}

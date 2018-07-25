@@ -8,6 +8,12 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 
+var mongoose   = require('mongoose');
+//Pease create your account at https://mlab.com
+mongoose.connect('mongodb://instructor:abc123A@ds235239.mlab.com:35239/tkn-demo');
+
+//var Person = require('./models/person');
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,15 +33,14 @@ router.use(function(req, res, next) {
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api! Look how middleware is executed!' });   
-});
-
-// more routes for our API will happen here
+//router.get('/', function(req, res) {
+//    res.json({ message: 'hooray! welcome to our api!' });   
+//});
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', router);
+require('./routes')(app);
+//app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
