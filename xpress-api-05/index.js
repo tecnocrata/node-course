@@ -12,7 +12,7 @@ var mongoose   = require('mongoose');
 //Pease create your account at https://mlab.com
 mongoose.connect('mongodb://instructor:abc123A@ds235239.mlab.com:35239/tkn-demo');
 
-//var Person = require('./models/person');
+var Person = require('./models/person');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -33,14 +33,31 @@ router.use(function(req, res, next) {
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-//router.get('/', function(req, res) {
-//    res.json({ message: 'hooray! welcome to our api!' });   
-//});
+router.get('/', function(req, res) {
+    res.json({ message: 'hooray! welcome to our api!' });   
+});
+
+// more routes for our API will happen here
+// ----------------------------------------------------
+router.route('/persons') //please lets use plural
+
+    // create a bear (accessed at POST http://localhost:8080/api/bears)
+    .post(function(req, res) {
+        console.log('Person ready');
+        var enrique = new Person();      // create a new instance of the Person model
+        enrique.name = req.body.name;  // set the person name (comes from the request)
+        // save the bear and check for errors
+        enrique.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'Person created!' });
+        });
+    });
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-require('./routes')(app);
-//app.use('/api', router);
+app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
