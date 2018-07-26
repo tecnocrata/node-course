@@ -27,35 +27,16 @@ router.use(function(req, res, next) {
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
-});
-
-// more routes for our API will happen here
-// ----------------------------------------------------
-router.route('/persons') //please lets use plural
-
-    // create a bear (accessed at POST http://localhost:8080/api/bears)
-    .post(function(req, res) {
-        console.log('Person ready');
-        var enrique = new Person();      // create a new instance of the Person model
-        enrique.name = req.body.name;  // set the person name (comes from the request)
-        
-        res.json({ message: 'Person created!' });
-    });
+//router.get('/', function(req, res) {
+//    res.json({ message: 'hooray! welcome to our api!' });   
+//});
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', router);
+require('./routes')(app);
+//app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
-
-
-class Person{
-    eat(){
-        console.log('eat...');
-    }
-}
