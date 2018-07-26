@@ -2,7 +2,7 @@
 
 function routes(app) {
     console.log('Starting routes...');
-    app.use('/api/persons', require('./api/person'));
+    app.use('/api/flights', require('./api/flights'));
 }
 
 module.exports = routes;

@@ -1,11 +1,13 @@
 //import express from 'express';
 let express = require('express');
-let personController = require('./person.controller');
+let flightController = require('./flight.controller');
 
 let router = express.Router();
 // more routes /persons for our API will happen here
 // ----------------------------------------------------
-router.post('/', personController.createPerson);
-router.get('/', personController.getPersons);
+router.get('/', flightController.getFlights);
+router.post('/', flightController.createFlight);
+router.delete('/', flightController.deleteFlight);
+router.put('/', flightController.updateFlight);
 
 module.exports = router;
