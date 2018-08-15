@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 class Flight extends Component {
   render() {
@@ -7,9 +8,9 @@ class Flight extends Component {
       <h2>{this.props.flight.number}</h2>
       <p>{this.props.flight.origin}</p>
       <button>Edit</button>
-      <button>Delete</button>
+      <button onClick={()=> this.props.dispatch({type:'DELETE_FLIGHT',number:this.props.flight.number})}>Delete</button>
     </div>
   );
  }
 }
-export default Flight;
+export default connect()(Flight);
