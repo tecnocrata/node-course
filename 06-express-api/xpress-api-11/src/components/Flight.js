@@ -6,6 +6,8 @@ class Flight extends Component {
     <div>
       <h2>{this.props.flight.number}</h2>
       <p>{this.props.flight.origin}</p>
+      <button>Edit</button>
+      <button>Delete</button>
     </div>
   );
  }
