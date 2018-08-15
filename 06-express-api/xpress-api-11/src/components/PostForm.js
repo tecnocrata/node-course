@@ -14,9 +14,10 @@ class PostForm extends Component {
             origin,
             destination,
             departs,
-            arrives
+            arrives,
+            editing: false
         }
-        console.log(data);
+        //console.log(data);
         this.props.dispatch({
             type: 'ADD_FLIGHT',
             data

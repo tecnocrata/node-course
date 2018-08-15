@@ -6,8 +6,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 
-import postReducer from './reducers/postReducer';
-const store = createStore(postReducer);
+import flightReducer from './reducers/flightReducer';
+const store = createStore(flightReducer);
 ReactDOM.render(
     <Provider store={store}>
         <App />
