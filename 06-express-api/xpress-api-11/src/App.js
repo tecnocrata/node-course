@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PostForm from './components/PostForm';
-//import AllFlights from './AllFlights'; //AllPost
+import AllFlights from './components/AllFlights'; //AllPost
 
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
     return (
     <div className="App">
         <PostForm />
-        {/* <AllFlights /> */}
+        <AllFlights />
     </div>
     );
     }
