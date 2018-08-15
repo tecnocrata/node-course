@@ -7,7 +7,7 @@ class Flight extends Component {
     <div>
       <h2>{this.props.flight.number}</h2>
       <p>{this.props.flight.origin}</p>
-      <button>Edit</button>
+      <button onClick={()=>this.props.dispatch({type:'EDIT_FLIGHT',number:this.props.flight.number})}>Edit</button>
       <button onClick={()=> this.props.dispatch({type:'DELETE_FLIGHT',number:this.props.flight.number})}>Delete</button>
     </div>
   );
