@@ -7,6 +7,9 @@ class App extends Component {
   render() {
     return (
     <div className="App">
+      <div className="navbar">
+        <h2 className="center ">Aeroline</h2>
+      </div>
         <PostForm />
         <AllFlights />
     </div>
