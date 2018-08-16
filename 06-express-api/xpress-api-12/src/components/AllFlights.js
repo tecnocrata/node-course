@@ -5,15 +5,27 @@ import EditFlight from './EditFlight';
 import axios from 'axios';
 
 class AllFlights extends Component {
+
+    state = {
+        flights: []
+      }
     constructor(props, context) {
         super(props, context);
     }
 
-    componentDidMount() {
-        axios.get(`http://localhost:8080/api/flights`)
+    async componentDidMount() {
+        await axios.get(`http://localhost:8080/api/flights`)
       .then(res => {
-        const fligths = res.data;
-        this.setState({ fligths });
+        //const fligths = res.data;
+        let flights = [];
+        for (var key in res.data) {
+            if (res.data.hasOwnProperty(key)) {
+                //console.log(key + " -> " + res.data[key]);
+                flights.push(res.data[key]);
+            }
+        };
+        console.log('FLIGHTS-->',flights);
+        this.setState({ flights });
       })
     }
 
@@ -21,7 +33,7 @@ class AllFlights extends Component {
         return (
             <div>
                 <h1>All Flights</h1>
-                {this.props.flights.map(flight=> 
+                {this.state.flights.map(flight=> 
                     (
                         <div key={flight.id}>
                             {flight.editing ? <EditFlight flight={flight} key={flight.id} /> :
@@ -40,4 +52,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(AllFlights);
+//export default connect(mapStateToProps)(AllFlights);
+export default AllFlights;
