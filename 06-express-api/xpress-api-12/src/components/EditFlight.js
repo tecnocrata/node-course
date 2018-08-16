@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import axios from 'axios';
 
 class EditComponent extends Component {
 handleEdit = (e) => {
@@ -11,7 +11,11 @@ handleEdit = (e) => {
     origin,
     destination
   }
-  this.props.dispatch({ type: 'UPDATE', number: this.props.flight.number, data: data })
+  this.props.dispatch({ type: 'UPDATE', number: this.props.flight.number, data: data });
+  axios.put(`http://localhost:8080/api/flights`, data)
+            .then(res => {
+                console.log('Updated -->', res.data);
+            });
 }
 render() {
 return (
