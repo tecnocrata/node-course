@@ -2,8 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Flight from './Flight';
 import EditFlight from './EditFlight';
+import axios from 'axios';
 
 class AllFlights extends Component {
+    constructor(props, context) {
+        super(props, context);
+    }
+
+    componentDidMount() {
+        axios.get(`http://localhost:8080/api/flights`)
+      .then(res => {
+        const fligths = res.data;
+        this.setState({ fligths });
+      })
+    }
+
     render() {
         return (
             <div>
