@@ -5,13 +5,14 @@ import AllFlights from './components/AllFlights'; //AllPost
 
 class App extends Component {
   render() {
+    const state = this.props.appState;
     return (
     <div className="App">
       <div className="navbar">
         <h2 className="center ">Aeroline</h2>
       </div>
-        <PostForm />
-        <AllFlights />
+        <PostForm flights={state.flights} update={this.props.setAppState}/>
+        <AllFlights flights={state.flights} update={this.props.setAppState}/>
     </div>
     );
     }

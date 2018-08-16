@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 import axios from 'axios';
 
 class PostForm extends Component {
@@ -19,10 +19,10 @@ class PostForm extends Component {
             editing: false
         }
         //console.log(data);
-        this.props.dispatch({
+        /* this.props.dispatch({
             type: 'ADD_FLIGHT',
             data
-        });
+        }); */
         axios.post(`http://localhost:8080/api/flights`, data)
             .then(res => {
                 console.log('Saved -->', res.data);
@@ -31,6 +31,10 @@ class PostForm extends Component {
                 this.destination.value = '';
                 this.departs.value = '';
                 this.arrives.value = '';
+                console.log('props....',this.props);
+                this.props.update({
+                    flights: this.props.flights.concat([res.data])
+                })
             });
     }
 
@@ -60,4 +64,5 @@ class PostForm extends Component {
         );
     }
 }
-export default connect()(PostForm);
+//export default connect()(PostForm);
+export default PostForm;

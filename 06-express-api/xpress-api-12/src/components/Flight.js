@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 import axios from 'axios';
 
 class Flight extends Component {
@@ -23,4 +23,5 @@ class Flight extends Component {
   );
  }
 }
-export default connect()(Flight);
+//export default connect()(Flight);
+export default Flight;
