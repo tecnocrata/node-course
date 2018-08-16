@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class PostForm extends Component {
     handleSubmit = (e) => {
@@ -22,11 +23,15 @@ class PostForm extends Component {
             type: 'ADD_FLIGHT',
             data
         });
-        this.number.value = '';
-        this.origin.value = '';
-        this.destination.value = '';
-        this.departs.value = '';
-        this.arrives.value = '';
+        axios.post(`http://localhost:8080/api/flights`, data)
+            .then(res => {
+                console.log('Saved -->', res.data);
+                this.number.value = '';
+                this.origin.value = '';
+                this.destination.value = '';
+                this.departs.value = '';
+                this.arrives.value = '';
+            });
     }
 
     render() {
