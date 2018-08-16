@@ -35,8 +35,8 @@ class AllFlights extends Component {
                 {this.props.flights.map(flight=> 
                     (
                         <div key={flight.number}>
-                            {flight.editing ? <EditFlight flight={flight} key={flight.id} /> :
-                                <Flight key={flight.number} flight={flight} />}
+                            {flight.editing ? <EditFlight flight={flight} key={flight.id} flights={this.props.flights} update={this.props.update}/> :
+                                <Flight key={flight.number} flight={flight} flights={this.props.flights} update={this.props.update}/>}
                         </div>
                     )                    
                 )}
