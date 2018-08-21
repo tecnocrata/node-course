@@ -1,8 +1,15 @@
+let pg = require ('../../db');
 let flights = require('../../data');
 
-function getFlights(req, res) {
+function getFlights(req, res, next) {
     console.log('Getting Flights...');
-    res.status(200).json(flights); //httpStatus.OK
+    //res.status(200).json(flights); //httpStatus.OK
+    let sql = `SELECT * FROM "flights"`;
+    return pg.db.any(sql)
+        .then(data => {
+            res.status(200).json(data);
+        })
+        .catch(next);
 }
 
 /*
@@ -19,7 +26,7 @@ BODY
     "arrives": "09:00PM"
 }
 */
-function createFlight(req, res) {
+function createFlight(req, res, next) {
     let data = req.body;
     console.log('Creating Flights', data);
     let number = data.number;
@@ -34,10 +41,19 @@ function createFlight(req, res) {
         departs,
         arrives
     };
-    flights[number] = item;
-    console.log(item);
-    res.status(201).json(item);
-    console.log('Flight created');
+    //flights[number] = item;
+    let sql = `INSERT INTO "flights" ("number", "origin", "destination") VALUES ($1, $2, $3);`;
+    //let sql = `INSERT INTO "flights" ("number", "origin", "destination") VALUES (${item.number}, '${item.origin}', '${item.destination}');`;
+    console.log('SENTENCE--> ',sql);
+  try {
+    return pg.db.none(sql, [item.number, item.origin, item.destination]).then(()=>{
+        res.status(201).json(item);
+        console.log('Flight created');
+    })
+    
+  } catch (error) {
+    next(error);
+  }
 }
 
 function deleteFlight(req, res) {
