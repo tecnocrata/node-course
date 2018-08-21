@@ -8,11 +8,23 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var cors = require('cors');                 // Enable Cors
 var bodyParser = require('body-parser');
+var pg = require ('./db');
 app.use(cors());
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+//Validate postgres connection
+pg.db.proc('version')
+  .then(() => {
+    console.log('Postgres Connected.... ');
+  })
+  .catch(err => {
+    console.log('Postgres connection error:');
+    console.error(err);
+    process.exit(-1);
+  });
 
 var port = process.env.PORT || 8080;        // set our port
 
