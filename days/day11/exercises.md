@@ -12,4 +12,9 @@
 ### Please use Yeoman+Angular-Fullstack and create the same app than xpress-api-12 + xpress-api-13
 
 * Please go to https://angular-fullstack.github.io/
-* Please go to https://github.com/angular-fullstack/generator-angular-fullstac
+* Please go to https://github.com/angular-fullstack/generator-angular-fullstack
+
+
+### Fix docker-06 sample in order to complete CRUD correctly
+
+### Please use docker-06 sample in order to provide API services to your flights app (react)
