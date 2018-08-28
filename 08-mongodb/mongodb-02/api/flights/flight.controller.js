@@ -1,8 +1,14 @@
-let flights = require('../../data');
+//let flights = require('../../data');
+let mongoContext = require('../../mongo');
+let Flight =  mongoContext.Flight;
 
-function getFlights(req, res) {
+function getFlights(req, res, next) {
     console.log('Getting Flights...');
-    res.status(200).json(flights); //httpStatus.OK
+    return Flight.find()
+    .then(flights=>{
+        res.status(200).json(flights); //httpStatus.OK
+    })
+    .catch (next);
 }
 
 /*
@@ -19,7 +25,7 @@ BODY
     "arrives": "09:00PM"
 }
 */
-function createFlight(req, res) {
+function createFlight(req, res, next) {
     let data = req.body;
     console.log('Creating Flights', data);
     let number = data.number;
@@ -34,10 +40,17 @@ function createFlight(req, res) {
         departs,
         arrives
     };
-    flights[number] = item;
-    console.log(item);
-    res.status(201).json(item);
-    console.log('Flight created');
+    let f = new Flight(item);
+    return f.save()
+    .then (flightCreated=>{
+        //flights[number] = item;
+        console.log(item);
+        res.status(201).json(flightCreated);
+        console.log('Flight created');
+    })
+    .catch(err => {
+        next(err);
+    });
 }
 
 function deleteFlight(req, res) {
