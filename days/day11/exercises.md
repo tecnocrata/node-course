@@ -1,6 +1,5 @@
 ## Exercises Day 11
 
-
 ### Create a SPA in order to consume the API created in the day 10 for all exercises
 
 * Fibonacci
