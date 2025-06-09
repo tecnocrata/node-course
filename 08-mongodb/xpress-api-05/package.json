@@ -9,8 +9,8 @@
   "author": "Enrique",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3",
-    "mongoose": "5.0.12"
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "mongoose": "8.15.1"
   }
 }
