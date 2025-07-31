@@ -47,5 +47,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-eslint");
   //grunt.registerTask("build", ["clean", "babel", "nodeunit", "clean"]);
-  grunt.registerTask("build", ["clean", "copy", "babel"]);
+  grunt.registerTask("build", ["eslint", "clean", "copy", "babel"]);
 };
